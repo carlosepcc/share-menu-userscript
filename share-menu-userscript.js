@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SIGA Share Menu Userscript
 // @namespace    http://tampermonkey.net/
-// @version      1.5
+// @version      1.6
 // @description  Este userscript añade botones para compartir el menú desde SIGA
 // @author       carlosepcc,jesusfvb
 // @match        https://alimentacion.uci.cu/
@@ -135,20 +135,20 @@ t.me/alimentacionuci
       item.insertAdjacentHTML("afterend", button);
     }
   );
-  Array.from(document.getElementsByName("copy-button")).forEach((item) => {
-    item.addEventListener("click", (event) => {
+  Array.from(document.getElementsByName("copy-button")).forEach(item => {
+    item.addEventListener("click", event => {
       let menu = event.target.parentElement.parentElement;
-      const menuObj = getMenu(menu);
+      let menuObj = getMenu(menu);
       let texto = getStringMenu(menuObj);
       texto = prettifyMenu(texto);
-      navigator.clipboard.writeText(texto);
+      navigator.clipboard.writeText(texto); //Copiar al portapapeles
       item.insertAdjacentHTML(
         "afterend",
         "<span id='message' style='color:green;font-weight:bold'> Copiado</span>"
-      );
+      ); //Notificar
       setTimeout(() => {
         document.getElementById("message").remove();
-      }, 1000);
+      }, 2000); //Eliminar la notificación automáticamente
       console.log(texto);
     });
   });
