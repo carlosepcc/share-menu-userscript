@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SIGA Share Menu Userscript
 // @namespace    http://tampermonkey.net/
-// @version      1.6
+// @version      1.7
 // @description  Este userscript añade botones para compartir el menú desde SIGA
 // @author       carlosepcc,jesusfvb
 // @match        https://alimentacion.uci.cu/
@@ -13,16 +13,10 @@
 
 (function () {
   "use strict";
-  var button = `<button style="
-  margin:4px;
-  padding:4px 8px;
-  border-radius:2px;
-  border:1px solid #0003;
-  font-weight:700;
-  color: #404040;
-  width:10em;
-  font-family: "Open Sans Semibold";
-  font-size: 14px;" name="copy-button"/>Copiar</button>`;
+  var button = `<button class="btn btn-large btn-default" style="
+  margin:4px;" name="copy-button"/>
+  Copiar
+  </button>`;
   function getTableData(table) {
     return Array.from(table.querySelectorAll(".row>div:first-child>label")).map(
       (item) => item.innerText
@@ -51,6 +45,10 @@ ${menu.comida.join("\n")}
 t.me/alimentacionuci
 `;
   }
+
+    var menuObj
+    var texto
+
   function prettifyMenu(string) {
     const rules = [
       { s: /\./g, r: "" }, //Elimina todos los periods
@@ -131,25 +129,56 @@ t.me/alimentacionuci
     return string;
   }
   Array.from(document.getElementsByClassName("panel-title-flat")).forEach(
-    (item, index) => {
-      item.insertAdjacentHTML("afterend", button);
+          (item, index) => item.insertAdjacentHTML("afterend", button)
+      )
+  function start (menuNode) {
+      menuObj = getMenu(menuNode);
+      texto = getStringMenu(menuObj);
+      texto = prettifyMenu(texto);
+  }
+    var notificationElement = `<dialog open id=notification
+    style="transition:0.5s;top:-180px;
+    z-index:9;position:fixed;
+    border:1px solid #0001;background:#fffa;backdrop-filter:blur(16px);
+    box-shadow:0 0 300px 0 #000;min-width:20em;
+    ">
+    <p>Acción realizada con éxito</p>
+    <button onclick=parentNode.style.top='-180px' style=float:right class="btn btn-large btn-default">OK</button>
+    </dialog>`
+    document.body.insertAdjacentHTML("beforeend",notificationElement)
+
+    var notificationNode = document.getElementById("notification")
+    function notificate(message = "Acción realizada con éxito"){
+notificationNode.firstElementChild.innerHTML = `<p style="
+color:#000a;
+font:900 1.2em ;
+">${message}</p>
+<pre style="max-height:80px;overflow:auto;background:none;">${texto ?? 'El texto está vacío'}</pre>`
+        notificationNode.style.top = "60px"
+        notificationNode.open = true;
+
+      setTimeout(() => {
+        notificationNode.style.top = "-180px"
+      }, 5000); //Ocultar la notificación automáticamente
     }
-  );
+    function copyText(){
+      navigator.clipboard.writeText(texto); //Copiar al portapapeles
+      notificate('Copiado correctamente') //Notificar
+      console.log(texto);
+    }
+
   Array.from(document.getElementsByName("copy-button")).forEach(item => {
     item.addEventListener("click", event => {
-      let menu = event.target.parentElement.parentElement;
-      let menuObj = getMenu(menu);
-      let texto = getStringMenu(menuObj);
-      texto = prettifyMenu(texto);
-      navigator.clipboard.writeText(texto); //Copiar al portapapeles
-      item.insertAdjacentHTML(
-        "afterend",
-        "<span id='message' style='color:green;font-weight:bold'> Copiado</span>"
-      ); //Notificar
-      setTimeout(() => {
-        document.getElementById("message").remove();
-      }, 2000); //Eliminar la notificación automáticamente
-      console.log(texto);
+        event.stopPropagation()
+        start(event.target.parentElement.parentElement)
+        copyText()
+    });
+  });
+    Array.from(document.querySelectorAll(".panel-flat")).forEach(item => {
+    item.addEventListener("click", event => {
+        event.stopPropagation()
+        start(item)
+        copyText()
     });
   });
 })();
