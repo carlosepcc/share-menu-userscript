@@ -11,7 +11,16 @@
 
 (function () {
   "use strict";
-  var button = `<button name="copy-button"/>Copiar</button>`;
+  var button = `<button style="
+  margin:4px;
+  padding:4px 8px;
+  border-radius:2px;
+  border:1px solid #0003;
+  font-weight:700;
+  color: #404040;
+  width:10em;
+  font-family: "Open Sans Semibold";
+  font-size: 14px;" name="copy-button"/>Copiar</button>`;
   function getTableData(table) {
     return Array.from(table.querySelectorAll(".row>div:first-child>label")).map(
       (item) => item.innerText
@@ -28,13 +37,13 @@
   function getStringMenu(menu) {
     return `${menu.fecha}
 
-**Desayuno**    
+**Desayuno**
 ${menu.desayuno.join("\n")}
 
-**Almuerzo**    
+**Almuerzo**
 ${menu.almuerzo.join("\n")}
 
-**Cena**    
+**Cena**
 ${menu.comida.join("\n")}
 
 t.me/alimentacionuci
@@ -137,7 +146,7 @@ t.me/alimentacionuci
       );
       setTimeout(() => {
         document.getElementById("message").remove();
-      }, 3000);
+      }, 1000);
       console.log(texto);
     });
   });
