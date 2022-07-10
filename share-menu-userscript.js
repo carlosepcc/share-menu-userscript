@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         SIGA Share Menu Userscript
 // @namespace    http://tampermonkey.net/
-// @version      1.3
+// @version      1.4
 // @description  Este userscript añade botones para compartir el menú desde SIGA
 // @author       carlosepcc,jesusfvb
 // @match        https://alimentacion.uci.cu/
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=uci.cu
+// @updateURL    https://raw.githubusercontent.com/carlosepcc/share-menu-userscript/main/share-menu-userscript.js
 // @downloadURL  https://raw.githubusercontent.com/carlosepcc/share-menu-userscript/main/share-menu-userscript.js
 // @grant        none
 // ==/UserScript==
