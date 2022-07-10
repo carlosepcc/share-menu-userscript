@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SIGA Share Menu Userscript
 // @namespace    http://tampermonkey.net/
-// @version      2.0
+// @version      2.1
 // @description  Este userscript añade botones para compartir el menú desde SIGA
 // @author       carlosepcc,jesusfvb
 // @match        https://alimentacion.uci.cu/
@@ -189,7 +189,7 @@ t.me/alimentacionuci
         menuObj = getMenu(menuNode);
         texto = getStringMenu(menuObj);
         texto = prettifyMenu(texto);
-        menuNode.querySelectorAll('.menu-preview').forEach(element => element.innerText = texto)
+        menuNode.querySelectorAll('.menu-preview').forEach(element => {element.innerText = texto})
     }
     var notificationElement = `<dialog open id=notification>
     <div>Acción realizada con éxito</div>
@@ -216,11 +216,11 @@ t.me/alimentacionuci
     }
 
     function shareText(urlTemplate){
-        window.open(urlTemplate.replace('{text}',encodeURI(texto)))
+               window.open(urlTemplate.replace('{text}',encodeURI(texto)))
     }
 
 
-    document.body.addEventListener("click", e => notificationNode.style.bottom = notificationHidePosition)
+    document.body.addEventListener("click", e => {notificationNode.style.bottom = notificationHidePosition})
     Array.from(document.getElementsByName("copy-button")).forEach(item => {
         item.addEventListener("click", event => {
             event.stopPropagation()
@@ -231,7 +231,7 @@ t.me/alimentacionuci
     Array.from(document.querySelectorAll(".btn-share")).forEach(item => {
         item.addEventListener("click", event => {
             event.stopPropagation()
-            start(event.target.parentElement.parentElement.parentElement)
+            start(event.target.parentElement.parentElement.parentElement.parentElement.parentElement)
             shareText(item.dataset.shareurl)
         });
     });
