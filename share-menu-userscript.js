@@ -2,7 +2,7 @@
 // @name         SIGA Share Menu Userscript
 // @namespace    http://tampermonkey.net/
 // @version      1.1
-// @description  try to take over the world!
+// @description  Este userscript añade botones para compartir el menú desde SIGA
 // @author       carlosepcc,jesusfvb
 // @match        https://alimentacion.uci.cu/
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=uci.cu
