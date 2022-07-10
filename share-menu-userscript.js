@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SIGA Share Menu Userscript
 // @namespace    http://tampermonkey.net/
-// @version      1.9
+// @version      2.0
 // @description  Este userscript añade botones para compartir el menú desde SIGA
 // @author       carlosepcc,jesusfvb
 // @match        https://alimentacion.uci.cu/
@@ -68,7 +68,7 @@
     </button>
     <button class="btn btn-large btn-default" name="copy-button" title="Copiar el texto modificado"/>Copiar</button>
 </div>
-<details open><summary class=btn>Texto modificado ◢</summary><pre class=menu-preview>Realice una acción para ver el texto modificado..</pre></details>
+<details><summary class=btn>Mostrar menú modificado ◢</summary><pre class=menu-preview>No se modificó correctamente el menú</pre></details>
 
     </div>`;
     function getTableData(table) {
@@ -189,7 +189,7 @@ t.me/alimentacionuci
         menuObj = getMenu(menuNode);
         texto = getStringMenu(menuObj);
         texto = prettifyMenu(texto);
-        document.querySelectorAll('.menu-preview').forEach(element => element.innerText = texto)
+        menuNode.querySelectorAll('.menu-preview').forEach(element => element.innerText = texto)
     }
     var notificationElement = `<dialog open id=notification>
     <div>Acción realizada con éxito</div>
@@ -233,6 +233,13 @@ t.me/alimentacionuci
             event.stopPropagation()
             start(event.target.parentElement.parentElement.parentElement)
             shareText(item.dataset.shareurl)
+        });
+    });
+
+    Array.from(document.querySelectorAll("summary")).forEach(item => {
+        item.addEventListener("click", event => {
+            event.stopPropagation()
+            start(event.target.parentElement.parentElement.parentElement.parentElement)
         });
     });
     Array.from(document.querySelectorAll(".panel-flat")).forEach(item => {
