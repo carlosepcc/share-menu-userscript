@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SIGA Share Menu Userscript
 // @namespace    http://tampermonkey.net/
-// @version      2.1
+// @version      2.2
 // @description  Este userscript añade botones para compartir el menú desde SIGA
 // @author       carlosepcc,jesusfvb
 // @match        https://alimentacion.uci.cu/
@@ -148,7 +148,7 @@ t.me/alimentacionuci
                 s: /\*\*Picadillo\*\* de masa de chorizo/g,
                 r: "**Picadillo de masa de chorizo**",
             },
-            { s: /PBorrarollo/g, r: "🍗   **Pollo**" },
+            { s: /Pollo/g, r: "🍗   **Pollo**" },
             { s: /Aporreado de pollo/g, r: "🍗   **Aporreado de pollo**" },
             { s: /\*\*Pollo\*\* asado/g, r: "**Pollo asado**" },
             { s: /\*\*Pollo\*\* frito/g, r: "**Pollo frito**" },
