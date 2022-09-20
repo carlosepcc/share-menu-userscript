@@ -96,7 +96,7 @@ ${menu.almuerzo.join("\n")}
 **Cena**
 ${menu.comida.join("\n")}
 
-t.me/alimentacionuci
+menuuci.t.me
 `;
     }
 
