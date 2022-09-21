@@ -106,8 +106,9 @@ menuuci.t.me
     function prettifyMenu(string) {
         const rules = [
             { s: /\./g, r: "" }, //Elimina todos los periods
-            { s: /,/g, r: "   " },
-            { s: /tme/g, r: "t.me" }, //Elimina todas las comas
+            { s: /,/g, r: "   " }, //Elimina todas las comas
+            { s: /tme/g, r: "t.me" },
+            { s: /menuucit/g, r: "menuuci.t" },
             { s: /\s*\(\d.*\)/g, r: "" }, //Elimina todas las cadenas de cantidades del producto Ej:  "(50 g )"
             { s: / 50 g/g, r: "" }, // Elimina " 50 g" - Para la cadena "Pan 50 g"
             { s: /Lunes/g, r: "**LUNES**" },
