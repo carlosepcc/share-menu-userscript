@@ -134,6 +134,7 @@ menuuci.t.me
             { s: /\/06/g, r: " de junio" },
 
             { s: /Vianda/g, r: "🥔   Vianda" },
+            { s: /Yuca/g, r: "🥔   Yuca" },
             { s: /Arroz/g, r: "🍚   Arroz" },
             { s: /🍚   Arroz congris/g, r: "🍛   Arroz congris" },
             { s: /Huevo/g, r: "🥚   **Huevo**" },
