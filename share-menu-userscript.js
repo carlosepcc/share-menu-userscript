@@ -169,6 +169,8 @@ menuuci.t.me
             { s: /Jamonada/g, r: "🥩️   **Jamonada**" },
             { s: /Jamón/g, r: "🥩️   **Jamón**" },
             { s: /Mortadella/g, r: "🥩️   **Mortadella**" },
+            { s: /Croqueta/g, r: "🥓   **Croqueta**" },
+            { s: /\*\*Croqueta\*\*s/g, r: "**Croquetas**" },
             { s: /Hígado/g, r: "🥩️   **Hígado**" },
             { s: /\*\*Hígado\*\* de res/g, r: "**Hígado de res**" },
             { s: /Cerdo/g, r: "🥩️   **Cerdo**" },
