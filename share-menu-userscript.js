@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SIGA Share Menu Userscript
 // @namespace    http://tampermonkey.net/
-// @version      2.8
+// @version      2.8.1
 // @description  Este userscript añade botones para compartir el menú desde SIGA
 // @author       carlosepcc,jesusfvb
 // @match        https://alimentacion.uci.cu/
@@ -54,6 +54,7 @@
     summary{font-weight:bold;width:100%}
     `
     document.head.appendChild(userStyle)
+    document.querySelector("#panel_0").style.height="fit-content"
     var actionsContainer = `<div class=actions>
     <div class=share-container>
     <button class="btn btn-large btn-default btn-share" data-shareurl="https://api.whatsapp.com/send?text={text}" title="Compartir con WhatsApp"/>
