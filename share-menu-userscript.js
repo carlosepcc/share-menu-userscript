@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SIGA Share Menu Userscript
 // @namespace    http://tampermonkey.net/
-// @version      2.8.1
+// @version      2.8.2
 // @description  Este userscript añade botones para compartir el menú desde SIGA
 // @author       carlosepcc,jesusfvb
 // @match        https://alimentacion.uci.cu/
@@ -176,6 +176,8 @@ menuuci.t.me
             { s: /\*\*Hígado\*\* de res/g, r: "**Hígado de res**" },
             { s: /Cerdo/g, r: "🥩️   **Cerdo**" },
             { s: /\*\*Cerdo\*\* guisado/g, r: "**Cerdo guisado**" },
+            { s: /Fiambre/g, r: "🥩️   **Fiambre**" },
+            { s: /\*\*Fiambre\*\* de cerdo/g, r: "**Fiambre de cerdo**" },
             { s: /Hamburguesa/g, r: "🍘   **Hamburguesa**" },
             { s: /Dulce/g, r: "🥐   Dulce" },
             { s: /Melón/g, r: "🍉️   Melón" },
