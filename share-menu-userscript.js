@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SIGA Share Menu Userscript
 // @namespace    http://tampermonkey.net/
-// @version      2.8.6
+// @version      2.8.7
 // @description  Este userscript añade botones para compartir el menú desde SIGA
 // @author       carlosepcc,jesusfvb
 // @match        https://alimentacion.uci.cu/
@@ -142,6 +142,7 @@ menuuci.t.me
             { s: /Malanga/g, r: "🥔   Malanga" },
             { s: /Papa/g, r: "🥔   Papa" },
             { s: /Ensalada/g, r: "🥬   Ensalada" },
+            { s: /🥬   Ensalada de pepino/g, r: "🥒   Ensalada de pepino" },
             { s: /Arroz/g, r: "🍚   Arroz" },
             { s: /🍚   Arroz congris/g, r: "🍛   Arroz congris" },
             { s: /Huevo/g, r: "🥚   **Huevo**" },
