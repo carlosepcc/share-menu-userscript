@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SIGA Share Menu Userscript
 // @namespace    http://tampermonkey.net/
-// @version      2.8.8
+// @version      2.9.0
 // @description  Este userscript añade botones para compartir el menú desde SIGA
 // @author       carlosepcc,jesusfvb
 // @match        https://alimentacion.uci.cu/
@@ -88,13 +88,13 @@
     function getStringMenu(menu) {
         return `${menu.fecha}
 
-**Desayuno**
+ᴅᴇsᴀʏᴜɴᴏ
 ${menu.desayuno.join("\n")}
 
-**Almuerzo**
+ᴀʟᴍᴜᴇʀᴢᴏ
 ${menu.almuerzo.join("\n")}
 
-**Cena**
+ᴄᴏᴍɪᴅᴀ
 ${menu.comida.join("\n")}
 
 menuuci.t.me
@@ -112,13 +112,13 @@ menuuci.t.me
             { s: /menuucit/g, r: "menuuci.t" },
             { s: /\s*\(\d.*\)/g, r: "" }, //Elimina todas las cadenas de cantidades del producto Ej:  "(50 g )"
             { s: / 50 g/g, r: "" }, // Elimina " 50 g" - Para la cadena "Pan 50 g"
-            { s: /Lunes/g, r: "**LUNES**" },
-            { s: /Martes/g, r: "**MARTES**" },
-            { s: /Miércoles/g, r: "**MIÉRCOLES**" },
-            { s: /Jueves/g, r: "**JUEVES**" },
-            { s: /Viernes/g, r: "**VIERNES**" },
-            { s: /Sábado/g, r: "**SÁBADO**" },
-            { s: /Domingo/g, r: "**DOMINGO**" },
+            { s: /Lunes/g, r: "**Lunes**" },
+            { s: /Martes/g, r: "**Martes**" },
+            { s: /Miércoles/g, r: "**Miércoles**" },
+            { s: /Jueves/g, r: "**Jueves**" },
+            { s: /Viernes/g, r: "**Viernes**" },
+            { s: /Sábado/g, r: "**Sábado**" },
+            { s: /Domingo/g, r: "**Domingo**" },
 
             { s: /\/\d+\n/g, r: "\n" }, //Borrar el año /<dígitos>\n
             { s: /\/07/g, r: " de julio" },
@@ -148,9 +148,9 @@ menuuci.t.me
             { s: /Huevo/g, r: "🥚   **Huevo**" },
             { s: /\*\*Huevo\*\* hervido/g, r: "**Huevo hervido**" },
             { s: /🥚   \*\*Huevo\*\* frito/g, r: "🍳   **Huevo frito**" },
-            { s: /Pan/g, r: "🍔   Pan " },
+            { s: /Pan/g, r: "🍔   Pan" },
             { s: /Sopa/g, r: "🍜   Sopa" },
-            { s: /Potaje/g, r: "🥣   Potaje" },
+            { s: /Potaje/g, r: "🥘   Potaje" },
             { s: /Caldosa/g, r: "🥘   Caldosa" },
             { s: /Boniat/g, r: "🥔   Boniat" },
             { s: /Picadillo/g, r: "🧆   **Picadillo**" },
