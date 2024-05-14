@@ -137,6 +137,7 @@ menuuci.t.me
             { s: /\((.*?) estudiantes/g, r: "(estudiantes" },
             { s: /\((.*?) trabajadores/g, r: "(trabajadores" },
 
+            { s: /Plato fuerte/g, r: "❔   Plato fuerte" },
             { s: /Vianda/g, r: "🥔   Vianda" },
             { s: /Yuca/g, r: "🥔   Yuca" },
             { s: /Malanga/g, r: "🥔   Malanga" },
@@ -145,6 +146,7 @@ menuuci.t.me
             { s: /🥬   Ensalada de pepino/g, r: "🥒   Ensalada de pepino" },
             { s: /Arroz/g, r: "🍚   Arroz" },
             { s: /🍚   Arroz congris/g, r: "🍛   Arroz congris" },
+            { s: /🍚   Arroz moros/g, r: "🍛   Arroz moros" },
             { s: /Huevo/g, r: "🥚   **Huevo**" },
             { s: /\*\*Huevo\*\* hervido/g, r: "**Huevo hervido**" },
             { s: /🥚   \*\*Huevo\*\* frito/g, r: "🍳   **Huevo frito**" },
