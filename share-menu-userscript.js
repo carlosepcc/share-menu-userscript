@@ -181,7 +181,7 @@ menuuci.t.me
             { s: /🥩️   \*\*Aporreado\*\* de pescado/g, r: "🐟   **Aporreado de pescado**" },
             { s: /Jamonada/g, r: "🥩️   **Jamonada**" },
             { s: /Jamon/g, r: "🥩️   **Jamón**" },
-            { s: /Jamón/g, r: "🥩️   **Jamón**" },
+            { s: /Pescado /g, r: "🐟   **Pescado **" },
             { s: /Mortadella/g, r: "🥩️   **Mortadella**" },
             { s: /Croqueta/g, r: "🥓   **Croqueta**" },
             { s: /\*\*Croqueta\*\*s/g, r: "**Croquetas**" },
